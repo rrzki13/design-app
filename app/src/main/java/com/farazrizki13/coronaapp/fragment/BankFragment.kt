@@ -1,7 +1,11 @@
 package com.farazrizki13.coronaapp.fragment
 
 import android.Manifest
+import android.content.Context
 import android.graphics.SurfaceTexture
+import android.hardware.camera2.CameraAccessException
+import android.hardware.camera2.CameraCharacteristics
+import android.hardware.camera2.CameraManager
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,8 +17,39 @@ import com.farazrizki13.coronaapp.R
 import kotlinx.android.synthetic.main.fragment_bank.*
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
+import java.lang.IllegalArgumentException
 
 class BankFragment : Fragment() {
+
+    private val  cameraManager by lazy {
+        activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+    }
+
+    private fun <T> cameraCharacteristics (cameraID : String, key : CameraCharacteristics.Key<T>) : T {
+        val characteristics = cameraManager.getCameraCharacteristics(cameraID)
+        return when (key) {
+            CameraCharacteristics.LENS_FACING -> characteristics.get(key)!!
+            CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP -> characteristics.get(key) !!
+            else -> throw IllegalArgumentException("Key not recognized")
+        }
+    }
+
+    private fun cameraId(lens : Int) : String {
+        var deviceId = listOf<String>()
+        try {
+            val cameraIdList = cameraManager.cameraIdList
+            deviceId = cameraIdList.filter { lens == cameraCharacteristics(it, CameraCharacteristics.LENS_FACING) }
+        } catch (e: CameraAccessException) {
+            Log.e(TAG, e.toString())
+        }
+
+        return deviceId[0]
+    }
+
+    private fun connectCamera() {
+        val deviceId = cameraId(CameraCharacteristics.LENS_FACING_BACK)
+        Log.e(TAG, "deviceId: $deviceId")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,6 +109,7 @@ class BankFragment : Fragment() {
     private fun checkCameraPermission() {
         if (EasyPermissions.hasPermissions(activity!!, Manifest.permission.CAMERA)) {
             Log.d(TAG, "App has camera")
+            connectCamera()
         }else {
             EasyPermissions.requestPermissions(activity!!,
                 getString(R.string.camera_request_rationale),
