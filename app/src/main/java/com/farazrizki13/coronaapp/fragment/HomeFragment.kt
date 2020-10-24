@@ -1,5 +1,6 @@
 package com.farazrizki13.coronaapp.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,6 +48,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val orientation = resources.configuration.orientation
+        var spanCount = 2
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            spanCount = 3
+        }
         rv_inpay.apply {
             layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
             inpayAdapter = RvInpayAdapter(inpaySource)
@@ -54,7 +60,7 @@ class HomeFragment : Fragment() {
         }
 
         rv_inpay_2.apply {
-            layoutManager = GridLayoutManager(view.context, 2)
+            layoutManager = GridLayoutManager(view.context, spanCount)
             indesignAdapter = RvInDesignAdapter(inDesignSource)
             adapter = indesignAdapter
         }
