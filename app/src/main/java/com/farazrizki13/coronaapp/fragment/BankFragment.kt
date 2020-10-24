@@ -4,33 +4,33 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.SurfaceTexture
-import android.hardware.camera2.CameraAccessException
-import android.hardware.camera2.CameraCharacteristics
-import android.hardware.camera2.CameraDevice
-import android.hardware.camera2.CameraManager
+import android.hardware.camera2.*
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.TextureView
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import com.farazrizki13.coronaapp.R
 import kotlinx.android.synthetic.main.fragment_bank.*
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
 import java.lang.IllegalArgumentException
+import java.util.*
 
 class BankFragment : Fragment() {
+
+    private val MAX_PREVIEW_WIDTH = 1280
+    private val MAX_PREVIEW_HEIGHT = 720
+    private lateinit var captureSession: CameraCaptureSession
+    private lateinit var captureRequesBuilder: CaptureRequest.Builder
 
     private lateinit var cameraDevice : CameraDevice
     private val deviceSurfaceCallback = object : CameraDevice.StateCallback() {
         override fun onOpened(p0: CameraDevice) {
-            Log.d(TAG, "camera device connected")
             cameraDevice = p0
+            previewSession()
         }
 
         override fun onDisconnected(p0: CameraDevice) {
@@ -120,6 +120,34 @@ class BankFragment : Fragment() {
         }
     }
 
+    private fun previewSession() {
+        val surfaceTexture = previewTextureView.surfaceTexture
+        surfaceTexture?.setDefaultBufferSize(MAX_PREVIEW_WIDTH, MAX_PREVIEW_HEIGHT)
+        val surface = Surface(surfaceTexture)
+
+        captureRequesBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW)
+        captureRequesBuilder.addTarget(surface)
+
+        cameraDevice.createCaptureSession(Arrays.asList(surface),
+        object : CameraCaptureSession.StateCallback() {
+            override fun onConfigureFailed(p0: CameraCaptureSession) {
+                Log.e(TAG, "created session failed")
+            }
+            override fun onConfigured(p0: CameraCaptureSession) {
+                captureSession = p0
+                captureRequesBuilder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
+                captureSession.setRepeatingRequest(captureRequesBuilder.build(), null, null)
+            }
+        }, null)
+    }
+
+    private fun closeCamera () {
+        if (this::captureSession.isInitialized)
+            captureSession.close()
+        if (this::cameraDevice.isInitialized)
+            cameraDevice.close()
+    }
+
     private val surfaceListener = object : TextureView.SurfaceTextureListener {
         override fun onSurfaceTextureSizeChanged(p0: SurfaceTexture, p1: Int, p2: Int) {
         }
@@ -144,6 +172,7 @@ class BankFragment : Fragment() {
     }
 
     override fun onPause() {
+        closeCamera()
         stopBackgroundThread()
         super.onPause()
     }
