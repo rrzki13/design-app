@@ -20,7 +20,7 @@ class BankActivity : AppCompatActivity() {
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_bank -> {
+            R.id.navigation_camera -> {
                 val fragment = BankFragment.newInstance()
                 addFragment(fragment)
                 return@OnNavigationItemSelectedListener true

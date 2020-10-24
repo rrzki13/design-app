@@ -2,7 +2,6 @@ package com.farazrizki13.coronaapp.fragment
 
 import android.Manifest
 import android.content.Context
-import android.content.pm.PackageManager
 import android.graphics.SurfaceTexture
 import android.hardware.camera2.*
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.os.HandlerThread
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.core.app.ActivityCompat
 import com.farazrizki13.coronaapp.R
 import kotlinx.android.synthetic.main.fragment_bank.*
 import pub.devrel.easypermissions.AfterPermissionGranted

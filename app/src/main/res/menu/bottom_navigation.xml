@@ -7,9 +7,9 @@
         android:title="Beranda" />
 
     <item
-        android:id="@+id/navigation_bank"
-        android:icon="@drawable/ic_baseline_account_balance_24"
-        android:title="Bank" />
+        android:id="@+id/navigation_camera"
+        android:icon="@drawable/ic_baseline_camera_alt_24"
+        android:title="Camera" />
 
     <item
         android:id="@+id/navigation_saya"
