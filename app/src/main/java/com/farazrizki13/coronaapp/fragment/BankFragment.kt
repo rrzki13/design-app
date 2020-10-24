@@ -1,5 +1,6 @@
 package com.farazrizki13.coronaapp.fragment
 
+import android.Manifest
 import android.graphics.SurfaceTexture
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.farazrizki13.coronaapp.R
 import kotlinx.android.synthetic.main.fragment_bank.*
+import pub.devrel.easypermissions.AfterPermissionGranted
+import pub.devrel.easypermissions.EasyPermissions
 
 class BankFragment : Fragment() {
 
@@ -22,6 +25,17 @@ class BankFragment : Fragment() {
         return view
     }
 
+    companion object {
+        const val REQUEST_CAMERA_PERMISSIONS = 100
+        private val TAG = BankFragment::class.qualifiedName
+        @JvmStatic fun newInstance(): BankFragment {
+            val fragment = BankFragment()
+            val args = Bundle()
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     private val surfaceListener = object : TextureView.SurfaceTextureListener {
         override fun onSurfaceTextureSizeChanged(p0: SurfaceTexture, p1: Int, p2: Int) {
         }
@@ -31,7 +45,6 @@ class BankFragment : Fragment() {
         override fun onSurfaceTextureDestroyed(surface: SurfaceTexture) = true
 
         override fun onSurfaceTextureAvailable(p0: SurfaceTexture, p1: Int, p2: Int) {
-            Log.d(TAG, "Textsurface width : $p1, height : $p2")
             openCamera()
         }
     }
@@ -45,16 +58,27 @@ class BankFragment : Fragment() {
     }
 
     private fun openCamera() {
-
+        checkCameraPermission()
     }
 
-    companion object {
-        private val TAG = BankFragment::class.qualifiedName
-        @JvmStatic fun newInstance(): BankFragment {
-            val fragment = BankFragment()
-            val args = Bundle()
-            fragment.arguments = args
-            return fragment
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    @AfterPermissionGranted(REQUEST_CAMERA_PERMISSIONS)
+    private fun checkCameraPermission() {
+        if (EasyPermissions.hasPermissions(activity!!, Manifest.permission.CAMERA)) {
+            Log.d(TAG, "App has camera")
+        }else {
+            EasyPermissions.requestPermissions(activity!!,
+                getString(R.string.camera_request_rationale),
+                REQUEST_CAMERA_PERMISSIONS,
+                Manifest.permission.CAMERA)
         }
     }
 }

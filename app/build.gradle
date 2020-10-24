@@ -49,4 +49,5 @@ dependencies {
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
 
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation 'pub.devrel:easypermissions:1.1.3'
 }

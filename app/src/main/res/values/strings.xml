@@ -38,4 +38,5 @@
     <string name="cash">Cash</string>
     <string name="transaction">Transaction</string>
     <string name="_12">12</string>
+    <string name="camera_request_rationale">This Application Required Camera Access</string>
 </resources>
