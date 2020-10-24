@@ -13,11 +13,13 @@ class BankFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bank, container, false)
+        val view = inflater.inflate(R.layout.fragment_bank, container, false)
+        return view
     }
 
     companion object {
-        fun newInstance(): BankFragment {
+        private val TAG = BankFragment::class.qualifiedName
+        @JvmStatic fun newInstance(): BankFragment {
             val fragment = BankFragment()
             val args = Bundle()
             fragment.arguments = args
