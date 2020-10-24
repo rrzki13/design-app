@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6877f9</color>
+    <color name="colorPrimaryDark">#6877f9</color>
+    <color name="colorAccent">#F9BA67</color>
+    <color name="almostBlack">#282828</color>
+    <color name="notToblack">#555</color>
+    <color name="white">#fff</color>
+    <color name="danger">#dc3545</color>
+    <color name="inProgress">#17a2b8</color>
+    <color name="info">#fd7e14</color>
+    <color name="save">#28a745</color>
+    <color name="dark">#1F34F6</color>
+    <color name="lightGray">#ddd</color>
+</resources>

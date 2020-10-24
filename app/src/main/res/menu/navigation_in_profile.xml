@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/navigation_favourite"
+            android:icon="@drawable/ic_love"
+            android:title="Your favourite" />
+
+        <item
+            android:id="@+id/navigation_user_edit"
+            android:icon="@drawable/ic_user_edit"
+            android:title="Edit profile" />
+
+        <item
+            android:id="@+id/navigation_friends"
+            android:icon="@drawable/ic_user_friends"
+            android:title="Invite friends" />
+
+        <item
+            android:id="@+id/navigation_promotion"
+            android:icon="@drawable/ic_tags"
+            android:title="Promotion" />
+
+        <item
+            android:id="@+id/navigation_cog"
+            android:icon="@drawable/ic_cog"
+            android:title="Setting" />
+    </group>
+
+    <group android:id="@+id/group_divider">
+        <item
+            android:id="@+id/navigation_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+    </group>
+
+</menu>

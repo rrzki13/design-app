@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment"
+    tools:ignore="ScrollViewCount">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="600dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="171dp"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/title_bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textSize="25sp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/lato_black"
+            android:text="@string/inpay"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="124dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_below="@id/title_bank"
+            android:layout_marginTop="20dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginStart="15dp"
+            app:contentPadding="15dp"
+            android:layout_marginEnd="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hi_rizki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/hi_rizki"
+                    android:textColor="@color/notToblack"
+                    android:textSize="23sp"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:id="@+id/saldo_anda"
+                    android:layout_below="@id/hi_rizki"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/saldo_anda"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/notToblack"
+                    android:textSize="12sp"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:id="@+id/rp"
+                    android:layout_below="@id/saldo_anda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/rp"
+                    android:textColor="@color/notToblack"
+                    android:textSize="12sp"
+                    tools:ignore="RelativeOverlap" />
+
+                <TextView
+                    android:layout_toEndOf="@id/rp"
+                    android:layout_marginStart="5dp"
+                    android:layout_below="@id/saldo_anda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/_120_000"
+                    android:textColor="@color/notToblack"
+                    android:textSize="17sp"
+                    tools:ignore="RelativeOverlap" />
+
+                <ImageView
+                    android:id="@+id/plus_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/plus"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/isi_saldo"
+                    android:layout_below="@id/plus_btn"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="178dp"
+            app:cardBackgroundColor="@color/white"
+            android:layout_below="@id/cv_1"
+            android:layout_marginTop="20dp"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginStart="15dp"
+            app:contentPadding="15dp"
+            android:layout_marginEnd="15dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/phone"
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/phone2"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:id="@+id/tv_pulsa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/phone"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/pulsa"
+                    android:textColor="@color/notToblack"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_below="@id/tv_pulsa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/phone"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/cashback_20"
+                    android:textColor="@color/colorAccent"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btn_beli"
+                    android:background="@drawable/btn_beli"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="@string/beli"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    tools:ignore="RelativeOverlap" />
+
+                <GridLayout
+                    android:layout_below="@id/phone"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:rowCount="2"
+                    android:columnCount="4">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/wifi"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/internet"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/phone3"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/paket_bicara"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:src="@drawable/mail"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/paket_sms"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="12sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/game"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/paket_gaming"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/lamp"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/listrik"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/gojek"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/gojek"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ovo"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/ovo"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/other"
+                            android:contentDescription="@string/app_name" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:text="@string/lihat_semua"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:textSize="13sp"/>
+
+                    </LinearLayout>
+
+                </GridLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="65dp"
+            android:id="@+id/rv_inpay"
+            android:layout_below="@id/card_middle"
+            android:paddingStart="15dp"
+            android:layout_marginTop="20dp"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:paddingBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/rv_inpay"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:id="@+id/rv_inpay_2"/>
+
+    </RelativeLayout>
+
+</ScrollView>

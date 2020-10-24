@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/the_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/covid_19"
+        android:fontFamily="@font/roboto_bold"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/the_subtitle"
+        android:layout_below="@id/the_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_kasus_covid_19"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp"/>
+
+    <GridLayout
+        android:id="@+id/gd_card"
+        android:layout_below="@id/the_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:columnCount="2">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            app:cardElevation="10dp"
+            android:layout_margin="10dp"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardBackgroundColor="@color/danger">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+                    android:text="@string/kasus_meniggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/covid_meninggal"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:text="@string/_100_000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/inProgress">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kasus_positif"
+                    android:textColor="#fff"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/covid_positif"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:text="@string/_100_000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/info">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+                    android:text="@string/kasus_dirawat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/covid_dirawat"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:text="@string/_100_000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            app:cardBackgroundColor="@color/save">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+                    android:text="@string/kasus_sembuh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/covid_sembuh"
+                    android:textColor="#fff"
+                    android:textSize="18sp"
+                    android:text="@string/_100_000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/title_another_design"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/another_design"
+        android:layout_below="@id/gd_card"
+        android:layout_margin="25dp"
+        android:textColor="@color/almostBlack"
+        android:fontFamily="@font/roboto_medium"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/title_another_design"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_design"/>
+
+
+</RelativeLayout>
